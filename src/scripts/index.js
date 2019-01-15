@@ -1,1 +1,3 @@
-console.log('Hello Rollup');
+'use strict';
+
+import '../styles/index.scss';
