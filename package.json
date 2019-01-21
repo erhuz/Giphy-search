@@ -5,15 +5,37 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "test": "npx stylelint \"src/styles/*.scss\" --syntax scss",
     "start": "rollup --config --watch",
     "build": "rollup --config --environment NODE_ENV:production"
   },
   "author": "Benjamin Fransson",
   "license": "ISC",
   "dependencies": {
+    "@csstools/normalize.css": "^9.0.1",
+    "autoprefixer": "^9.4.6",
+    "browserslist": "^4.4.0",
+    "cssnano": "^4.1.8",
     "node-sass": "^4.11.0",
+    "postcss-normalize": "^7.0.1",
     "rollup": "^1.1.0",
     "rollup-plugin-browsersync": "^1.0.0",
-    "rollup-plugin-postcss": "^1.6.3"
+    "rollup-plugin-postcss": "^1.6.3",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "devDependencies": {
+    "stylelint": "^9.10.1"
+  },
+  "browserslist": {
+    "browsers": [
+      ">0.25%",
+      "not ie 11",
+      "not op_mini all"
+    ]
+  },
+  "stylelint": {
+    "plugins": [
+    ],
+    "extends": "stylelint-config-standard"
   }
 }
