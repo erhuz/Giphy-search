@@ -1,5 +1,7 @@
 import browsersync from 'rollup-plugin-browsersync';
 import postcss from 'rollup-plugin-postcss';
+import postcssNormalize from 'postcss-normalize';
+import cssnano from 'cssnano';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
@@ -13,7 +15,15 @@ module.exports = {
   },
   plugins: [
     postcss({
-      plugins: []
+      extract: true,
+      sourceMap: true,
+      plugins: [
+        postcssNormalize(),
+        require('autoprefixer'),
+        require('cssnano')({
+          preset: 'default',
+        })
+      ]
     }),
     (isDevelopment && browsersync({server: 'public'}))
   ]
