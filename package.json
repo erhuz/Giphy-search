@@ -34,8 +34,7 @@
     ]
   },
   "stylelint": {
-    "plugins": [
-    ],
+    "plugins": [],
     "extends": "stylelint-config-standard"
   }
 }
