@@ -24,20 +24,22 @@ main.giphy{
     max-width      : 676px;
 
     input.search__field{
-      width     : calc(100% - 100px);
-      padding   : .9rem;
-      border    : 2px solid #AB41C1;
-      font-size : 16px;
-      background: #fefefe;
-
+      width: calc(100% - 100px);
+      padding: .9rem;
+      border: 2px solid #AB41C1;
+      border-right-width: 0px;
+      font-size: 16px;
     }
 
     button.search__button{
-      padding          : .9rem;
-      border           : 2px solid #AB41C1;
-      background-color : #AB41C1;
-      border-left-width: 0px;
-      color            : #fff;
+      padding: .9rem;
+      border-width: 0px;
+      height: 100%;
+      width: 52px;
+      color: #fff;
+      background-image: url('images/search.gif');
+      background-size: cover;
+      cursor: pointer;
 
       &:hover{
         background-color: rgb(191, 73, 214);
