@@ -3,6 +3,7 @@ import postcss from 'rollup-plugin-postcss';
 import postcssNormalize from 'postcss-normalize';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import injectEnv from 'rollup-plugin-inject-env';
 
 const isProduction  = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
@@ -11,8 +12,9 @@ const isDevelopment = isProduction === false;
 module.exports = {
   input : 'src/scripts/index.js',
   output: {
-    file  : 'public/giphy.js',
-    format: 'iife'
+    file     : 'public/giphy.js',
+    format   : 'iife',
+    sourcemap: true
   },
   plugins: [
     postcss({
@@ -26,6 +28,9 @@ module.exports = {
         })
       ]
     }),
-    (isDevelopment && browsersync({server: 'public'}))
+    (isDevelopment && browsersync({server: 'public'})),
+    injectEnv({
+      envFilePath: ".env",
+    }),
   ]
 }
