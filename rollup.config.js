@@ -18,7 +18,7 @@ module.exports = {
   output: {
     file     : 'public/giphy.js',
     format   : 'iife',
-    sourcemap: true
+    sourcemap: true,
   },
   plugins: [
     (isProduction && terser()),
