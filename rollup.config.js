@@ -5,13 +5,15 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import { terser } from "rollup-plugin-terser";
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction  = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
 
 
 module.exports = {
-  input: 'src/scripts/index.js',
+  input : 'src/scripts/index.js',
   output: {
     file: 'public/giphy.js',
     format: 'iife',
@@ -22,12 +24,12 @@ module.exports = {
     (isProduction && filesize()),
     (isDevelopment && browsersync({server: 'public'})),
     postcss({
-      extract: true,
+      extract  : true,
       sourceMap: true,
-      plugins: [
+      plugins  : [
         postcssNormalize(),
-        require('autoprefixer'),
-        require('cssnano')({
+        autoprefixer(),
+        cssnano({
           preset: 'default',
         })
       ]

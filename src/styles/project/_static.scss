@@ -1,27 +1,27 @@
 header.header{
-  display: flex;
+  display        : flex;
   justify-content: center;
 
   img.header__logo{
-    display: block;
-    width: 75%;
+    display  : block;
+    width    : 75%;
     min-width: 376px;
     max-width: 676px;
-    padding: 1.2rem;
+    padding  : 1.2rem;
   }
 }
 
 main.giphy{
-  display: flex;
+  display        : flex;
   justify-content: center;
-  margin: 1.2rem;
+  margin         : 1.2rem;
 
   form.search{
-    display: flex;
+    display        : flex;
     justify-content: center;
-    width: 80%;
-    min-width: 376px;
-    max-width: 676px;
+    width          : 80%;
+    min-width      : 376px;
+    max-width      : 676px;
 
     input.search__field{
       width: calc(100% - 100px);
