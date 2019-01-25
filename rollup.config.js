@@ -35,7 +35,6 @@ module.exports = {
         })
       ]
     }),
-    (isDevelopment && browsersync({server: 'public'})),
     injectEnv({
       envFilePath: ".env",
     }),
