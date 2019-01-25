@@ -17,7 +17,7 @@ const search = (query, apiKey, rating) => {
 
   return window.fetch(url)
   .then(res => res.json())
-  .catch(console.error());
+  .catch(console.error);
 }
 
 export default { search };
