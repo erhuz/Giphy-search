@@ -18,26 +18,14 @@ searchForm.addEventListener('submit', (event) => {
   // Search query, Api key, Gif rating
   giphy.search(searchQuery, apiKey, 'g')
     .then(res => {
-      console.log(res);
-
 
       res.data.forEach(gif => {
-        gallery.innerHTML += gif.images.original.url;
-        log(gif);
-        const linkTag = document.createElement('a');
-        log(linkTag);
-        linkTag.classList.add('gallery__item');
-
-        const img = document.createElement('img');
-        img.setAttribute('src', gif.images.original.url);
-
-        linkTag.appendChild(img);
-
-        log('this workin?');
-
-
+        gallery.innerHTML += `
+          <a class="gallery__item" href="${gif.images.original.url}">
+            <img src="${gif.images.original.url}">
+          </a>
+        `;
       });
-
 
     });
 });
