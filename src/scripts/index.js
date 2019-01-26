@@ -18,8 +18,19 @@ searchForm.addEventListener('submit', (event) => {
   // Search query, Api key, Gif rating
   giphy.search(searchQuery, apiKey, 'g')
     .then(res => {
+      const notFound = document.querySelector('.not-found');
+      notFound.classList.remove('not-found--active');
+      notFound.innerHTML = '';
 
-      res.data.forEach(gif => {
+      if(res.data.length === 0){
+        console.log('not found');
+
+        notFound.classList.add('not-found--active');
+
+        const newContent = document.createTextNode(`We couldn't find any GIFs with the search query "${searchQuery}".`);
+        notFound.appendChild(newContent);
+      }else{
+        res.data.forEach(gif => {
           // create a new div element
           const imgContainer = document.createElement('a');
           imgContainer.classList.add('gallery__item');
@@ -32,7 +43,8 @@ searchForm.addEventListener('submit', (event) => {
 
           // Append image container to gallery
           gallery.appendChild(imgContainer);
-      });
+        });
+      }
 
     });
 });
