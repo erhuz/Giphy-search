@@ -1,0 +1,7 @@
+main.giphy{
+  display        : flex;
+  flex-direction : column !important; // Not listening if non important
+  align-items    : center;
+  justify-content: center;
+  margin         : 1.2rem;
+}
