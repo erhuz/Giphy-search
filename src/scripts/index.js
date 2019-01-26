@@ -20,28 +20,18 @@ searchForm.addEventListener('submit', (event) => {
     .then(res => {
 
       res.data.forEach(gif => {
-        // gallery.innerHTML += `
-        //   <a class="gallery__item" href="${gif.images.original.url}">
-        //     <img src="${gif.images.original.url}">
-        //   </a>
-        // `;
-
           // create a new div element
-          const linkTag = document.createElement('a');
-          linkTag.classList.add('gallery__item');
+          const imgContainer = document.createElement('a');
+          imgContainer.classList.add('gallery__item');
           // and give it some content
           const img = document.createElement('img');
           img.setAttribute('src', gif.images.original.url);
 
           // add the text node to the newly created div
-          linkTag.appendChild(img);
+          imgContainer.appendChild(img);
 
-          gallery.appendChild(linkTag);
-
-          // // add the newly created element and its content into the DOM
-          // const currentDiv = document.getElementById("div1");
-          // document.body.insertBefore(linkTag, currentDiv);
-
+          // Append image container to gallery
+          gallery.appendChild(imgContainer);
       });
 
     });
